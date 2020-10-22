@@ -11,8 +11,9 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Admin.hasMany(models.Location, {
-        foreignKey: 'locationId'
+      Admin.belongsTo(models.Location, {
+        foreignKey: 'locationId',
+        onDelete: 'CASCADE'
       })
     }
   };

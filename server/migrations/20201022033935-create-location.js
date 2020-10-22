@@ -11,15 +11,6 @@ module.exports = {
       address: {
         type: Sequelize.STRING
       },
-      adminId: {
-        type: Sequelize.INTEGER,
-        onDelete: 'CASCADE',
-        references: {
-          model: 'Admins',
-          key: 'id',
-          as: 'adminId'
-        }
-      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
