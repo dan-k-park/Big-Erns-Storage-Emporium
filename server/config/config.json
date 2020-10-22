@@ -1,17 +1,19 @@
 {
   "development": {
     "database": "big_erns_storage_emporium_development",
-    "host": "127.0.0.1",
     "dialect": "postgres"
   },
   "test": {
-    "database": "big_erns_storage_emporium_test",
-    "host": "127.0.0.1",
+    "database": "big_erns_storage_emporium_development",
     "dialect": "postgres"
   },
   "production": {
-    "database": "big_erns_storage_emporium_production",
-    "host": "127.0.0.1",
-    "dialect": "postgres"
+    "use_env_variable": "DATABASE_URL",
+    "dialect": "postgres",
+    "dialectOptions": {
+      "ssl": {
+        "rejectUnauthorized": false
+      }
+    }
   }
 }
