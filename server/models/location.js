@@ -11,6 +11,10 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      Location.belongsTo(models.Admin,{
+        foreignKey: 'adminId'
+      })
+      Location.belongsToMany(models.User, { through: 'Unit', foreignKey: 'userId' }) 
     }
   };
   Location.init({
