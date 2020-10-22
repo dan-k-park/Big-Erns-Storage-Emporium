@@ -14,19 +14,19 @@ module.exports = {
    return queryInterface.bulkInsert('Units', 
    [
      {
-       rented: true,
-       start: 2020-01-01,
+       rented: false,
+       start: '2004-10-19',
        price: 50,
        length: 5,
        width: 10,
-       userId: 1,
+       userId: null,
        locationId: 1,
        createdAt: new Date(),
        updatedAt: new Date()
      },
      {
        rented: true,
-       start: 2020-04-01,
+       start: '2004-10-19',
        price: 25,
        length: 5,
        width: 5,
@@ -36,19 +36,19 @@ module.exports = {
        updatedAt: new Date()
      },
      {
-       rented: false,
-       start: null,
+       rented: true,
+       start: '2004-10-19',
        price: 25,
        length: 5,
        width: 5,
-       userId: null,
+       userId: 2,
        locationId: 1,
        createdAt: new Date(),
        updatedAt: new Date()
      },
      {
        rented: true,
-       start: 2019-12-31,
+       start: '2004-10-19',
        price: 30,
        length: 5,
        width: 7,
@@ -58,8 +58,8 @@ module.exports = {
        updatedAt: new Date()
      },
      {
-       rented: false,
-       start: null,
+       rented: true,
+       start: '2004-10-19',
        price: 50,
        length: 5,
        width: 10,
@@ -70,7 +70,7 @@ module.exports = {
      },
      {
        rented: true,
-       start: 2020-05-15,
+       start: '2004-10-19',
        price: 50,
        length: 5,
        width: 10,
@@ -81,7 +81,7 @@ module.exports = {
      },
      {
        rented: true,
-       start: 2020-08-16,
+       start: '2004-10-19',
        price: 25,
        length: 5,
        width: 5,
@@ -91,34 +91,34 @@ module.exports = {
        updatedAt: new Date()
      },
      {
-        rented: false,
-        start: null,
+        rented: true,
+        start: '2004-10-19',
         price: 50,
         length: 5,
         width: 10,
-        userId: null,
+        userId: 4,
         locationId: 2,
         createdAt: new Date(),
         updatedAt: new Date()
      },
      {
-        rented: false,
-        start: null,
+        rented: true,
+        start: '2004-10-19',
         price: 30,
         length: 5,
         width: 7,
-        userId: null,
+        userId: 4,
         locationId: 2,
         createdAt: new Date(),
         updatedAt: new Date()
      },
      {
-        rented: false,
-        start: null,
+        rented: true,
+        start: '2004-10-19',
         price: 30,
         length: 5,
         width: 7,
-        userId: null,
+        userId: 4,
         locationId: 2,
         createdAt: new Date(),
         updatedAt: new Date()

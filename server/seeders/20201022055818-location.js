@@ -14,9 +14,13 @@ module.exports = {
    return queryInterface.bulkInsert('Locations', [
       {
         address: 'That St &, This St, Porters Lake, NS B3E 1H4, Canada',
+        createdAt: new Date(),
+        updatedAt: new Date(),
       },
       {
-        address: 'That St, Porters Lake, NS B3E 1H3, Canada'
+        address: 'That St, Porters Lake, NS B3E 1H3, Canada',
+        createdAt: new Date(),
+        updatedAt: new Date(),
       }
     ])
   },

@@ -21,7 +21,7 @@ module.exports = (sequelize, DataTypes) => {
   };
   Unit.init({
     rented: DataTypes.BOOLEAN,
-    start: DataTypes.DATE,
+    start: DataTypes.DATEONLY,
     price: DataTypes.INTEGER,
     length: DataTypes.INTEGER,
     width: DataTypes.INTEGER,

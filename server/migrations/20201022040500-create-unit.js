@@ -12,7 +12,7 @@ module.exports = {
         type: Sequelize.BOOLEAN
       },
       start: {
-        type: Sequelize.DATE
+        type: Sequelize.DATEONLY
       },
       price: {
         type: Sequelize.INTEGER
