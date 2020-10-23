@@ -1,7 +1,8 @@
+const { response } = require('express');
 const { Admin, Location, Unit, User } = require('../models');
 const { get } = require('../routes');
 
-//Create and Save
+// Admin Controller Actions
 const createAdmin = async (req, res) => {
     try {
         const admin = await Admin.create(req.body);
@@ -11,7 +12,6 @@ const createAdmin = async (req, res) => {
     }   
 }
 
-// Retrieve all admins
 const getAllAdmins = async (req, res) => {
     try {
         const admins = await Admin.findAll();
@@ -21,7 +21,40 @@ const getAllAdmins = async (req, res) => {
     }
 }
 
+const getAdminById = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const admin = await Admin.findOne({
+            where: { id: id }
+        });
+        if (admin) {
+            return res.status(200).json({ admin });
+        }
+        return res.status(404).send('Admin with the specified ID does not exist');
+    } catch (err) {
+        return res.status(500).send(err.message);
+    }
+}
+
+const updateAdmin = async(req, res) => {
+    try {
+        const { id } = req.params;
+        const [updated] = await Admin.update(req.body, {
+            where: { id: id}
+        });
+        if (updated) {
+            const updatedAdmin = await Admin.findOne({ where: { id: id} });
+            return res.status(200).json({ admin: updatedAdmin })
+        }
+        throw new Error('Admin not found');
+    } catch (err) {
+        return res.status(500).send(err.message);
+    }
+}
+
 module.exports = {
     createAdmin,
-    getAllAdmins
+    getAllAdmins,
+    getAdminById,
+    updateAdmin
 }
