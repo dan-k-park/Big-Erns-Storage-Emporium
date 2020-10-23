@@ -6,8 +6,11 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
+      location: "",
       units: [],
-      currentUser: {}
+      displayUnits: [],
+      currentUser: {},
+      currentAdmin: {},
     }
   }
 
