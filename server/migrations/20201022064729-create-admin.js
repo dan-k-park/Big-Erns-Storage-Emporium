@@ -20,15 +20,6 @@ module.exports = {
       password: {
         type: Sequelize.STRING
       },
-      locationId: {
-        type: Sequelize.INTEGER,
-        onDelete: 'CASCADE',
-        references: {
-          model: 'Locations',
-          key: 'id',
-          as: 'locationId'
-        }
-      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
