@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import HomePage from './components/HomePage';
-import './App.css';
+import Navbar from './components/Navbar/Navbar';
+import HomePage from './components//HomePage/HomePage'
 
 class App extends Component {
   constructor() {
@@ -10,8 +10,22 @@ class App extends Component {
       location: "",
       units: [],
       displayUnits: [],
-      currentUser: {},
-      currentAdmin: {},
+      currentUser: {
+        firstName: 'Ernie',
+        lastName: 'Johnson',
+        email: 'bigern@gmail.com',
+        password: 'admin1',
+        admin: true
+      },
+      admin: false
+    }
+  }
+
+  componentDidMount() {
+    if (this.state.currentUser.admin) {
+      this.setState({
+        admin: true
+      })
     }
   }
 
@@ -20,7 +34,8 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <Navbar />
+        <Navbar currentUser={this.state.currentUser} admin={this.state.admin} />
+        <Route exact path='/' render={() => <HomePage />} />
       </Router>
     )
   }
