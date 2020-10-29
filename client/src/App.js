@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Navbar from './components/Navbar/Navbar';
-import HomePage from './components//HomePage/HomePage'
+import HomePage from './components/HomePage/HomePage';
+import Login from './components/Login/Login';
 
 class App extends Component {
   constructor() {
@@ -10,32 +11,16 @@ class App extends Component {
       location: "",
       units: [],
       displayUnits: [],
-      currentUser: {
-        firstName: 'Ernie',
-        lastName: 'Johnson',
-        email: 'bigern@gmail.com',
-        password: 'admin1',
-        admin: true
-      },
+      currentUser: {},
       admin: false
     }
   }
-
-  componentDidMount() {
-    if (this.state.currentUser.admin) {
-      this.setState({
-        admin: true
-      })
-    }
-  }
-
-
 
   render() {
     return (
       <Router>
         <Navbar currentUser={this.state.currentUser} admin={this.state.admin} />
-        <Route exact path='/' render={() => <HomePage />} />
+        <Route exact path='/login' render={() => <Login />} />
       </Router>
     )
   }
