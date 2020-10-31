@@ -1,10 +1,13 @@
 const express = require('express');
 const session = require('express-session');
 const routes = require('./routes');
+const cookieSession = require('cookie-session');
 const passport = require('passport');
-const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
+const keys = require('./config/keys');
 const logger = require('morgan')
-var userProfile;
+require('./models/user')
+require('./services/passport');
+
 
 const app = express();
 
@@ -14,51 +17,22 @@ app.use(express.json());
 // Parse requests of content-type: application/x-www-form-urlencoded
 app.use(express.urlencoded({ extended: true }));
 
-app.use(session({
-    resave: false,
-    saveUninitialized: true,
-    secret: 'SECRET' 
-  }));
+app.use(
+  cookieSession({
+    // cookie last for 30 days in milliseconds
+    maxAge: 30 * 24 * 60 * 60 * 1000,
+    // cookieKey is a random string of letters can be anything
+    // put in an array if multiple keys are desired and cookieSession will randomly pick one
+    keys: [keys.cookieKey]
+  })
+);
 
-// Passport setup
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.get('/success', (req, res) => res.send(userProfile));
-app.get('/error', (req, res) => res.send("error logging in"));
-
-
-passport.serializeUser(function(user, cb) {
-  cb(null, user);
-});
-
-passport.deserializeUser(function(obj, cb) {
-  cb(null, obj);
-});
-
-// Google auth
-const GOOGLE_CLIENT_ID = process.env.GOOGLE_CLIENT_ID;
-const GOOGLE_CLIENT_SECRET = process.env.GOOGLE_CLIENT_SECRET;
-passport.use(new GoogleStrategy({
-    clientID: GOOGLE_CLIENT_ID,
-    clientSecret: GOOGLE_CLIENT_SECRET,
-    callbackURL: "http://localhost:3000/auth/google/callback"
-  },
-  function(accessToken, refreshToken, profile, done) {
-      userProfile=profile;
-      return done(null, userProfile);
-  }
-));
- 
-app.get('/auth/google', 
-  passport.authenticate('google', { scope : ['profile', 'email'] }));
- 
-app.get('/auth/google/callback', 
-  passport.authenticate('google', { failureRedirect: '/error' }),
-  function(req, res) {
-    // Successful authentication, redirect success.
-    res.redirect('/success');
-  });
+// authRoutes file returns a function
+// the (app) immediately invokes said function that was just required in
+require('./routes/authRoutes')(app);
 
 // Morgan logger
 app.use(logger('dev'))
