@@ -3,9 +3,13 @@
   "version": "1.0.0",
   "description": "API for Big Erns Storage Emporium",
   "main": "index.js",
-  "scripts": {
+  "engines": {
+    "node": "8.1.1",
+    "npm": "5.0.3"
+  },  "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js",
+    "start": "node index.js",
+    "dev": "nodemon index.js",
     "db:reset": "npx sequelize-cli db:drop && npx sequelize-cli db:create && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all"
   },
   "keywords": [

@@ -1,81 +1,18 @@
-import React, { Component } from 'react';
-import { Button, Form, Grid, Header, Segment } from 'semantic-ui-react'
+import React from 'react'
+import { Link, withRouter } from "react-router-dom";
+import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react'
 
+const Login = () => (
+  <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
+    <Grid.Column style={{ maxWidth: 450 }}>
+      <Header as='h2' color='teal' textAlign='center'>
+        Log-in or Register with:
+      </Header>
+    <Button as={Link} to='http://localhost:3000/auth/google' color='teal' fluid size='large'>
+        Google
+    </Button>
+    </Grid.Column>
+  </Grid>
+)
 
-class Login extends Component {
-    constructor() {
-      super();
-      this.state = {
-        error: false,
-        fields: {
-          email: '',
-          password: '',
-        }
-      }
-    }
-  
-    componentDidMount() {
-      const token = localStorage.getItem('token')
-      if (token) {
-        this.props.history.push('/')
-      }
-    }
-  
-    handleChange = evt => {
-      const newFields = { ...this.state.fields, [evt.target.name]: evt.target.value };
-      this.setState({ fields: newFields });
-    }
-  
-    handleSubmit = evt => {
-      evt.preventDefault();
-      api.auth.login(this.state.fields).then(res => {
-        if (!res.error) {
-          this.props.handleLogin(res);
-          this.props.history.push('/');
-        } else {
-          this.setState({ error: true })
-        }
-      });
-    }
-    render() {
-        const { fields } = this.state;
-        
-        return(
-          <Grid textAlign='center' style={{ height: '90vh' }} verticalAlign='middle'>
-          <Grid.Column style={{ maxWidth: 450 }}>
-            <Header as='h2' color='teal' textAlign='center'>
-              Log-in to your account
-            </Header>
-            <Segment raised>
-               <Form>
-                 <Form.Input  
-                  name="username"
-                  icon='user'
-                  iconPosition='left'
-                  placeholder="Username"
-                  value={fields.username}
-                  onChange={this.handleChange}
-                  />
-                <Form.Input
-                  name="password"
-                  icon='lock'
-                  iconPosition='left'
-                  type="password"
-                  placeholder="Password"
-                  value={fields.password}
-                  onChange={this.handleChange}
-                  />
-                {this.state.error ? <h3 className='Error'>Invalid Username/Password</h3> : null}
-                <Button onClick={this.handleSubmit} color='teal'>Login</Button>
-                <br></br>
-                <br></br>
-                <Button as={Link} to={`/register`} color='teal'>Register</Button>
-              </Form>
-            </Segment>
-          </Grid.Column>
-        </Grid>
-        )
-      }
-    }
-
-export default Login;
+export default Login

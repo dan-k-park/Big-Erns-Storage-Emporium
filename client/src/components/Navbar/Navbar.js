@@ -12,10 +12,9 @@ const Navbar = props => {
     return (
       <Menu fixed='top' inverted>
       <Container>
-        <Menu.Item as='a' header position='left'>
+        <Menu.Item as={Link} to='/' header position='left'>
           Big Ern's Storage Emporium
         </Menu.Item>
-        <Menu.Item as='a'>Home</Menu.Item>
 
         <Dropdown item simple text='My Account'>
           <Dropdown.Menu>
