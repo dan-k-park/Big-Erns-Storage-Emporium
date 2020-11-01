@@ -8,9 +8,7 @@ const Login = () => (
       <Header as='h2' color='teal' textAlign='center'>
         Log-in or Register with:
       </Header>
-    <Button as={Link} to='http://localhost:3000/auth/google' color='teal' fluid size='large'>
-        Google
-    </Button>
+      <a href="/auth/google">Sign In With Google</a>        
     </Grid.Column>
   </Grid>
 )
