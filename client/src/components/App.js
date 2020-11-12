@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import Navbar from './Navbar/Navbar';
-import HomePage from './HomePage/HomePage';
+import Header from './Header';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
-import Login from './Login/Login';
 
 class App extends Component {
   componentDidMount() {
@@ -15,8 +13,7 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <Navbar />
-        <Route exact path='/login' render={() => <Login />} />
+        <Header />
       </Router>
     )
   }
