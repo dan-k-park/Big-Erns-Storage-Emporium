@@ -11,13 +11,13 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Location.belongsToMany(models.Admin,{ through: 'AdminLocation', foreignKey: 'adminId'})
-      Location.belongsToMany(models.User, { through: 'Unit', foreignKey: 'userId' }) 
+      Location.hasMany(models.Unit, {
+        foreignKey: 'locationId'
+      })
     }
   };
   Location.init({
-    address: DataTypes.STRING,
-    adminId: DataTypes.INTEGER
+    address: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'Location',

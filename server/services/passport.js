@@ -34,7 +34,13 @@ passport.use(new GoogleStrategy(
           done(null, existingUser);
         } else {
           console.log(profile)
-          new User({ firstName:profile.name.givenName, lastName:profile.name.familyName, email:profile.emails[0].value , googleId: profile.id })
+          new User({ 
+            firstName:profile.name.givenName, 
+            lastName:profile.name.familyName, 
+            balance: 0,
+            email:profile.emails[0].value , 
+            googleId: profile.id 
+          })
             .save()
             .then(user => done(null, user));
         }
