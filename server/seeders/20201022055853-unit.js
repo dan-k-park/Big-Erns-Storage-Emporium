@@ -30,7 +30,7 @@ module.exports = {
        price: 25,
        length: 5,
        width: 5,
-       userId: 2,
+       userId: null,
        locationId: 1,
        createdAt: new Date(),
        updatedAt: new Date()
@@ -41,7 +41,7 @@ module.exports = {
        price: 25,
        length: 5,
        width: 5,
-       userId: 2,
+       userId: null,
        locationId: 1,
        createdAt: new Date(),
        updatedAt: new Date()
@@ -52,7 +52,7 @@ module.exports = {
        price: 30,
        length: 5,
        width: 7,
-       userId: 3,
+       userId: null,
        locationId: 1,
        createdAt: new Date(),
        updatedAt: new Date()
@@ -74,7 +74,7 @@ module.exports = {
        price: 50,
        length: 5,
        width: 10,
-       userId: 4,
+       userId: null,
        locationId: 2,
        createdAt: new Date(),
        updatedAt: new Date()
@@ -85,7 +85,7 @@ module.exports = {
        price: 25,
        length: 5,
        width: 5,
-       userId: 4,
+       userId: null,
        locationId: 2,
        createdAt: new Date(),
        updatedAt: new Date()
@@ -96,7 +96,7 @@ module.exports = {
         price: 50,
         length: 5,
         width: 10,
-        userId: 4,
+        userId: null,
         locationId: 2,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -107,7 +107,7 @@ module.exports = {
         price: 30,
         length: 5,
         width: 7,
-        userId: 4,
+        userId: null,
         locationId: 2,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -118,7 +118,7 @@ module.exports = {
         price: 30,
         length: 5,
         width: 7,
-        userId: 4,
+        userId: null,
         locationId: 2,
         createdAt: new Date(),
         updatedAt: new Date()

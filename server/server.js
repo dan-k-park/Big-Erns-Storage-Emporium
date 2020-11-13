@@ -32,6 +32,7 @@ app.use(passport.session());
 // authRoutes file returns a function
 // the (app) immediately invokes said function that was just required in
 require('./routes/authRoutes')(app);
+require('./routes/accountRoutes')(app);
 
 // Morgan logger
 app.use(logger('dev'))

@@ -19,9 +19,9 @@ class Header extends Component {
         )
       default:
         return [
-        <NavDropdown.Item href="/api/reservations">View Reservations</NavDropdown.Item>,
-        <NavDropdown.Item href="/api/bill">Pay Your Bill</NavDropdown.Item>,
-        <NavDropdown.Item href="/api/logout">Logout</NavDropdown.Item>
+        <NavDropdown.Item key='reservations' href="/api/reservations">View Reservations</NavDropdown.Item>,
+        <NavDropdown.Item key='bill' href="/api/bill">Pay Your Bill</NavDropdown.Item>,
+        <NavDropdown.Item key='logout' href="/api/logout">Logout</NavDropdown.Item>
       ]
     }
   }
