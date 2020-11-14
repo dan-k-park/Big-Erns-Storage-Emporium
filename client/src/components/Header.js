@@ -10,7 +10,7 @@ import { Link, withRouter } from "react-router-dom";
 
 class Header extends Component {
 
-  
+
 
   renderContent() {
     switch (this.props.auth) {
@@ -31,10 +31,10 @@ class Header extends Component {
           ]
         } else {
           return [
-          <NavDropdown.Item key='4' href="/reservations">View Reservations</NavDropdown.Item>,
-          <NavDropdown.Item key='5' href="/api/bill"><Payments /></NavDropdown.Item>,
-          <NavDropdown.Item key='6' href="/api/logout">Logout</NavDropdown.Item>
-        ]
+            <NavDropdown.Item key='4' href="/reservations">View Reservations</NavDropdown.Item>,
+            <NavDropdown.Item key='5' href="/api/bill"><Payments /></NavDropdown.Item>,
+            <NavDropdown.Item key='6' href="/api/logout">Logout</NavDropdown.Item>
+          ]
         }
     }
   }
