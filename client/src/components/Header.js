@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Payments from './Payments'
 import {
   Navbar,
   Nav,
@@ -8,6 +9,9 @@ import { connect } from 'react-redux';
 import { Link, withRouter } from "react-router-dom";
 
 class Header extends Component {
+
+  
+
   renderContent() {
     switch (this.props.auth) {
       case null:
@@ -18,11 +22,20 @@ class Header extends Component {
           <NavDropdown.Item href="/auth/google">Login</NavDropdown.Item>
         )
       default:
-        return [
-        <NavDropdown.Item key='reservations' href="/api/reservations">View Reservations</NavDropdown.Item>,
-        <NavDropdown.Item key='bill' href="/api/bill">Pay Your Bill</NavDropdown.Item>,
-        <NavDropdown.Item key='logout' href="/api/logout">Logout</NavDropdown.Item>
-      ]
+        if (this.props.auth.admin) {
+          return [
+            <NavDropdown.Item key='1' href="/api/users">View Current Tenants</NavDropdown.Item>,
+            <NavDropdown.Item key='2' href="/api/locations">View Facilities</NavDropdown.Item>,
+            <NavDropdown.Item key='3' href="/api/new/locations">Add New Facilities</NavDropdown.Item>,
+            <NavDropdown.Item key='6' href="/api/logout">Logout</NavDropdown.Item>
+          ]
+        } else {
+          return [
+          <NavDropdown.Item key='4' href="/reservations">View Reservations</NavDropdown.Item>,
+          <NavDropdown.Item key='5' href="/api/bill"><Payments /></NavDropdown.Item>,
+          <NavDropdown.Item key='6' href="/api/logout">Logout</NavDropdown.Item>
+        ]
+        }
     }
   }
 
@@ -35,7 +48,7 @@ class Header extends Component {
           <Nav className="justify-content-end">
             <Nav.Link as={Link} to='/units'>Browse Units</Nav.Link>
             <NavDropdown title="Your Account" id="basic-nav-dropdown">
-              {this.renderContent(0)}
+              {this.renderContent()}
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>

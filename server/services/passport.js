@@ -33,13 +33,14 @@ passport.use(new GoogleStrategy(
         if (existingUser) {
           done(null, existingUser);
         } else {
-          console.log(profile)
+          const isAdmin = profile.emails[0].value === 'danpark105@gmail.com'
           new User({ 
             firstName:profile.name.givenName, 
             lastName:profile.name.familyName, 
             balance: 0,
             email:profile.emails[0].value , 
-            googleId: profile.id 
+            googleId: profile.id ,
+            admin: isAdmin
           })
             .save()
             .then(user => done(null, user));
