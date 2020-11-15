@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import UnitContainer from './units/UnitContainer';
+import UnitContainer from '../units/UnitContainer';
 
 class UserDashboard extends Component {
   render() {

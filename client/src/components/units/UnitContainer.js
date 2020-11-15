@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { connect, connnect } from 'react-redux';
+import { connect } from 'react-redux';
 // import { fetchUnits } from '../../actions';
 import { Card, Button } from 'react-bootstrap';
 

@@ -10,8 +10,6 @@ import { Link, withRouter } from "react-router-dom";
 
 class Header extends Component {
 
-
-
   renderContent() {
     switch (this.props.auth) {
       case null:
