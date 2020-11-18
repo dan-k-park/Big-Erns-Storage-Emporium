@@ -24,7 +24,7 @@ class Header extends Component {
           return [
             <NavDropdown.Item key='1' href="/api/users">View Current Tenants</NavDropdown.Item>,
             <NavDropdown.Item key='2' href="/api/locations">View Facilities</NavDropdown.Item>,
-            <NavDropdown.Item key='3' href="/api/new/locations">Add New Facilities</NavDropdown.Item>,
+            <NavDropdown.Item key='3' href="/new/locations">Add New Facilities</NavDropdown.Item>,
             <NavDropdown.Item key='6' href="/api/logout">Logout</NavDropdown.Item>
           ]
         } else {
