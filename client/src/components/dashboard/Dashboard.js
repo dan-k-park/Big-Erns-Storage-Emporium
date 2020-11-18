@@ -9,14 +9,12 @@ class Dashboard extends Component {
     switch(this.props.auth) {
       case null:
         return;
-      case true:
+      default:
         if (this.props.auth.admin) {
           return <AdminDashboard />
         } else {
           return <UserDashboard />
         }
-      default:
-        return <UserDashboard />
     }
   }
 

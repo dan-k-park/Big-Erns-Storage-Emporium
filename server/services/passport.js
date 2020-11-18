@@ -33,7 +33,7 @@ passport.use(new GoogleStrategy(
         if (existingUser) {
           done(null, existingUser);
         } else {
-          const isAdmin = profile.emails[0].value === 'danpark105@gmail.com'
+          const isAdmin = profile.emails[0].value === 'devingacct@gmail.com'
           new User({ 
             firstName:profile.name.givenName, 
             lastName:profile.name.familyName, 
