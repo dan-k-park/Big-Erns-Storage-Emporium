@@ -17,7 +17,7 @@ class App extends Component {
       <Router>
         <Header />
         <Route exact path ='/' component={Dashboard}/>
-        <Route exact path ='/new/location' component={LocationNew}/>
+        <Route exact path ='/locations/new' component={LocationNew}/>
       </Router>
     )
   }
