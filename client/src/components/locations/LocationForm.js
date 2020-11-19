@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { reduxForm, Field } from 'redux-form';
+import { Container, Row, Col } from 'react-bootstrap';
 import LocationField from './LocationField';
 import { Link } from 'react-router-dom';
 import _ from 'lodash';
@@ -14,13 +15,21 @@ class LocationForm extends Component {
 
   render() {
     return (
-      <div>
-        <form onSubmit={this.props.handleSubmit(this.props.onLocationSubmit)}>
+      <Container fluid={true}>
+        <Row>
+          <Col sm={6} style={{ marginTop: '8%' }}>
+          <form onSubmit={this.props.handleSubmit(this.props.onLocationSubmit)}>
           {this.renderFields()}
           <Link to='/'>Cancel</Link>
           <button type='submit'>Next</button>
         </form>
-      </div>
+          </Col>
+          <Col sm={6} style={{ marginTop: '8%' }}>
+            Google maps rendering
+          </Col>
+        </Row>
+       
+      </Container>
     )
   }
 }
