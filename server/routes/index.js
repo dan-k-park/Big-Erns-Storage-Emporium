@@ -1,22 +1,10 @@
 const { Router } = require('express');
-const adminController = require('../controllers/admin');
-const adminLocationController = require('../controllers/adminlocation');
 const locationController = require('../controllers/location');
 const unitController = require('../controllers/unit');
 const userController = require('../controllers/user');
 const router = Router();
 
 router.get('/', (req,res) => res.send('This is root!'))
-
-router.post('/admins', adminController.createAdmin)
-router.get('/admins', adminController.getAllAdmins)
-router.get('/admins/:id', adminController.getAdminById)
-router.put('/admins/:id', adminController.updateAdmin)
-
-router.post('/adminlocations', adminLocationController.createAdminLocation)
-router.get('/adminlocations', adminLocationController.getAllAdminLocations)
-router.put('/adminlocations/:id', adminLocationController.updateAdminLocation)
-router.delete('/adminlocations/:id', adminLocationController.deleteAdminLocation)
 
 router.post('/locations', locationController.createLocation)
 router.get('/locations', locationController.getAllLocations)

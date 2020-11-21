@@ -1,6 +1,8 @@
 const { Location } = require('../models')
 
 const createLocation = async (req, res) => {
+    debugger
+
     try {
         const location = await Location.create(req.body);
         return res.status(201).json({ location });
