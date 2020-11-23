@@ -5,6 +5,7 @@ import Dashboard from './dashboards/Dashboard'
 import LocationNew from './locations/LocationNew';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
+import './App.css'
 
 class App extends Component {
 

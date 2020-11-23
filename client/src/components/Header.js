@@ -39,8 +39,8 @@ class Header extends Component {
 
   render() {
     return (
-      <Navbar bg="light" expand="lg" fixed="top">
-        <Navbar.Brand as={Link} to='/'>Big Ern's Storage Emporium</Navbar.Brand>
+      <Navbar expand="lg" fixed="top" className='color-nav'>
+        <Navbar.Brand as={Link} to='/' className='white-text'>Big Ern's Storage Emporium</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="justify-content-end">

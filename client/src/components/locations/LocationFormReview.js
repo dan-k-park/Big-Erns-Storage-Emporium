@@ -4,9 +4,9 @@ import { connect } from 'react-redux';
 import formFields from './formFields';
 import { withRouter } from 'react-router-dom';
 import * as actions from '../../actions'
-import LocationForm from './LocationForm';
 
-const LocationFormReview = ({ onCancel, formValues, submitSurvey, history }) => {
+
+const LocationFormReview = ({ onCancel, formValues, submitLocation, history }) => {
   const reviewFields = _.map(formFields, ({ name, label }) => {
     return (
       <div key={name}>
@@ -23,7 +23,7 @@ const LocationFormReview = ({ onCancel, formValues, submitSurvey, history }) => 
       <button onClick={onCancel}>
         Back
       </button>
-      <button onClick={() => actions.submitLocation(formValues, history)}>
+      <button onClick={() => submitLocation(formValues, history)}>
         Create Location
       </button>
     </div>
@@ -31,6 +31,7 @@ const LocationFormReview = ({ onCancel, formValues, submitSurvey, history }) => 
 }
 
 function mapStateToProps(state) {
+  console.log(state)
   return { formValues: state.form.locationForm.values }
 }
 
