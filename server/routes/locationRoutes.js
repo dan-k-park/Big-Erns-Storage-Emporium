@@ -1,11 +1,11 @@
 const { Location, Unit } = require('../models')
 
 const makeUnits = (locationId, numUnitsToMake, price, size) => {
-  console.log(`Making ${numUnitsToMake} of size ${size}`)
-  const n = parseInt(numUnitsToMake, price)
+  const n = parseInt(numUnitsToMake)
   let length, width
   if (size == 25) {
-    length, width = 5
+    length = 5;
+    width = 5;
   } else if (size == 75) {
     length = 15;
     width = 5;
@@ -49,8 +49,14 @@ module.exports = app => {
     })
     .then(location => {
       makeUnits(location.id, num25, 25, 25)
-      makeUnits(location.id, num75, 40, 75)
-      makeUnits(location.id, num150, 55, 150)
+      return location.id
+    })
+    .then(locationId => {
+      makeUnits(locationId, num75, 40, 75)
+      return locationId
+    })
+    .then(locationId => {
+      makeUnits(locationId, num150, 55, 150)
     })
     .catch(err => res.status(500).send(err.message))
   })
