@@ -11,6 +11,15 @@ module.exports = {
       address: {
         type: Sequelize.STRING
       },
+      num25: {
+        type: Sequelize.INTEGER
+      },
+      num75: {
+        type: Sequelize.INTEGER
+      },
+      num150: {
+        type: Sequelize.INTEGER
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

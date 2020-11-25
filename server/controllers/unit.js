@@ -2,7 +2,7 @@ const { Unit } = require('../models');
 
 const createUnit = async (req, res) => {
     try {
-        const lnit = await Unit.create(req.body);
+        const unit = await Unit.create(req.body);
         return res.status(201).json({ unit });
     } catch (err) {
         return res.status(500).json({ err: err.message });

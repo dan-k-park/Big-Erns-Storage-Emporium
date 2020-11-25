@@ -7,7 +7,7 @@ import _ from 'lodash';
 import formFields from './formFields';
 
 class LocationForm extends Component {
-  renderFields() {
+  renderTextFields() {
     return _.map(formFields, ({ label, name }) => {
       return <Field key={name} component={LocationField} type='text' label={label} name={name} />
     })
@@ -39,18 +39,18 @@ class LocationForm extends Component {
                 label="Number of 25 sq ft Units"
                 component={LocationField}
                 type="number"
-                name="25"
+                name="twentyfive"
               />
               <Field
                 label="Number of 75sq ft Units"
                 type="number"
-                name="75"
+                name="seventyfive"
                 component={LocationField}
               />
               <Field
                 label="Number of 150sq ft Units"
                 type="number"
-                name="150"
+                name="onefifty"
                 component={LocationField}
               />
               <Link to='/'>Cancel</Link>

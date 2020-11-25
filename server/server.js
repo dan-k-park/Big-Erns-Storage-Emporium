@@ -34,6 +34,7 @@ app.use(passport.session());
 require('./routes/authRoutes')(app);
 require('./routes/accountRoutes')(app);
 require('./routes/locationRoutes')(app);
+require('./routes/unitRoutes')(app)
 
 // Morgan logger
 app.use(logger('dev'))

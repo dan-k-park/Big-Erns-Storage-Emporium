@@ -17,7 +17,10 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   Location.init({
-    address: DataTypes.STRING
+    address: DataTypes.STRING,
+    num25: DataTypes.INTEGER,
+    num75: DataTypes.INTEGER,
+    num150: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'Location',
