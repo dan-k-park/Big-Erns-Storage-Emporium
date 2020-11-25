@@ -49,14 +49,8 @@ module.exports = app => {
     })
     .then(location => {
       makeUnits(location.id, num25, 25, 25)
-      return location.id
-    })
-    .then(locationId => {
-      makeUnits(locationId, num75, 40, 75)
-      return locationId
-    })
-    .then(locationId => {
-      makeUnits(locationId, num150, 55, 150)
+      makeUnits(location.id, num75, 40, 75)
+      makeUnits(location.id, num150, 55, 150)
     })
     .catch(err => res.status(500).send(err.message))
   })
