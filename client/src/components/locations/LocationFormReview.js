@@ -31,7 +31,6 @@ const LocationFormReview = ({ onCancel, formValues, submitLocation, history }) =
 }
 
 function mapStateToProps(state) {
-  console.log(state)
   return { formValues: state.form.locationForm.values }
 }
 

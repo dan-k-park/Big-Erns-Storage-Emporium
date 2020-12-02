@@ -6,6 +6,7 @@ import LocationNew from './locations/LocationNew';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
 import './App.css'
+import AdminDashboard from './dashboards/AdminDashboard';
 
 class App extends Component {
 
@@ -19,6 +20,7 @@ class App extends Component {
         <Header />
         <Route exact path ='/' component={Dashboard}/>
         <Route exact path ='/locations/new' component={LocationNew}/>
+        <Route exact path='/admin' component={AdminDashboard} />
       </Router>
     )
   }

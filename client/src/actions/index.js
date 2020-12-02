@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { FETCH_LOCATIONS, FETCH_USER } from './types'
+import { FETCH_LOCATIONS, FETCH_USER, SET_ADMIN } from './types'
 
 export const fetchUser = () => async dispatch => {
   const res = await axios.get('/api/current_user');
@@ -7,10 +7,17 @@ export const fetchUser = () => async dispatch => {
   dispatch({ type: FETCH_USER, payload: res.data });
 }
 
+export const checkAdmin = () => async dispatch => {
+  const res = await axios.get('/api/current_user');
+  if (!res.data.admin) {
+    dispatch({ type: SET_ADMIN, payload: res.data.admin })
+  }
+}
+
 export const submitLocation = (values, history) => async dispatch => {
   const res = await axios.post('/api/locations', values);
 
-  history.push('/');
+  history.push('/admin');
   dispatch({ type: FETCH_USER, payload: res.data })
 }
 

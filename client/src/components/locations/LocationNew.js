@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import { reduxForm } from 'redux-form';
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+import * as actions from '../../actions'
 import LocationForm from './LocationForm';
 import LocationFormReview from './LocationFormReview';
 
@@ -7,7 +10,7 @@ class LocationNew extends Component {
   state = { showFormReview: false};
 
   componentDidMount() {
-    // create something here that runs something in the backend to check if user is an admin
+    this.props.checkAdmin();
   }
 
   renderContent() {
@@ -26,6 +29,15 @@ class LocationNew extends Component {
   }
 }
 
+function mapStateToProps({ auth }) {
+  return { auth } // identical key value pair { auth: auth } = { auth }
+}
+
+LocationNew = connect(
+  mapStateToProps,
+  actions
+)(LocationNew)
+
 export default reduxForm({
   form: 'locationForm'
-})(LocationNew);
+})(withRouter(LocationNew));

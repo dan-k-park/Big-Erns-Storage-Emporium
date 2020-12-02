@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import { Table } from 'react-bootstrap';
 
 class AdminDashboard extends Component {
-
-
+  
   render() {
     return (
       <Table responsive>
