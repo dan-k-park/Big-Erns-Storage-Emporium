@@ -7,10 +7,10 @@ export const fetchUser = () => async dispatch => {
   dispatch({ type: FETCH_USER, payload: res.data });
 }
 
-export const checkAdmin = () => async dispatch => {
+export const checkAdmin = (history) => async dispatch => {
   const res = await axios.get('/api/current_user');
   if (!res.data.admin) {
-    dispatch({ type: SET_ADMIN, payload: res.data.admin })
+    history.push('/')
   }
 }
 

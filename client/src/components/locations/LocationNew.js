@@ -10,7 +10,7 @@ class LocationNew extends Component {
   state = { showFormReview: false};
 
   componentDidMount() {
-    this.props.checkAdmin();
+    this.props.checkAdmin(this.props.history);
   }
 
   renderContent() {
