@@ -23,6 +23,12 @@ module.exports = {
       googleId: {
         type: Sequelize.STRING
       },
+      hasRental: {
+        type: Sequelize.BOOLEAN
+      },
+      hasPaid: {
+        type: Sequelize.BOOLEAN
+      },
       admin: {
         type: Sequelize.BOOLEAN
       },

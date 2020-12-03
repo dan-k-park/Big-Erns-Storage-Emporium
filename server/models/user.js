@@ -22,6 +22,8 @@ module.exports = (sequelize, DataTypes) => {
     balance: DataTypes.INTEGER,
     email: DataTypes.STRING,
     googleId: DataTypes.STRING,
+    hasRental: DataTypes.BOOLEAN,
+    hasPaid: DataTypes.BOOLEAN,
     admin: DataTypes.BOOLEAN
   }, {
     sequelize,

@@ -38,8 +38,10 @@ passport.use(new GoogleStrategy(
             firstName:profile.name.givenName, 
             lastName:profile.name.familyName, 
             balance: 0,
-            email:profile.emails[0].value , 
-            googleId: profile.id ,
+            email:profile.emails[0].value, 
+            googleId: profile.id,
+            hasRental: isAdmin ? null : false,
+            hasPaid: null,
             admin: isAdmin
           })
             .save()
