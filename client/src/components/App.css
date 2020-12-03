@@ -13,3 +13,8 @@ body {
 .textcolor {
   color: #d7e1ef;
 }
+
+.icons {
+  size: 20;
+  margin-right: 2px;
+}

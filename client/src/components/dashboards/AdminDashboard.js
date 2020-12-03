@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Container, CardGroup, Card, Col, Row } from 'react-bootstrap';
-import { Square } from 'react-bootstrap-icons';
+import { CashStack, ListCheck, PeopleFill, HouseDoorFill } from 'react-bootstrap-icons';
 import { fetchUnits, fetchTenants } from '../../actions';
 
 class AdminDashboard extends Component {
@@ -15,11 +15,11 @@ class AdminDashboard extends Component {
     return (
       <Card className="text-center">
         <Card.Body>
-          <Card.Title>
+          <Card.Subtitle>
             Units
-          </Card.Title>
+          </Card.Subtitle>
           <Card.Text>
-            <Square />{this.props.units.length}
+            <HouseDoorFill className='icons' /><h3>{this.props.units.length}</h3>
           </Card.Text>
         </Card.Body>
       </Card>
@@ -36,11 +36,11 @@ class AdminDashboard extends Component {
     return (
       <Card className="text-center">
         <Card.Body>
-          <Card.Title>
+          <Card.Subtitle>
             Ongoing Rentals
-          </Card.Title>
+          </Card.Subtitle>
           <Card.Text>
-            <Square />{rentedUnits}
+            <ListCheck className='icons' /><h3>{rentedUnits}</h3>
           </Card.Text>
         </Card.Body>
       </Card>
@@ -51,11 +51,11 @@ class AdminDashboard extends Component {
     return (
       <Card className="text-center">
         <Card.Body>
-          <Card.Title>
+          <Card.Subtitle>
             Tenants
-          </Card.Title>
+          </Card.Subtitle>
           <Card.Text>
-            {this.props.tenants.length}
+            <PeopleFill className='icons' /><h3>{this.props.tenants.length}</h3>
           </Card.Text>
         </Card.Body>
       </Card>
@@ -72,11 +72,11 @@ class AdminDashboard extends Component {
     return (
       <Card className="text-center">
         <Card.Body>
-          <Card.Title>
+          <Card.Subtitle>
             Outstanding Payments
-          </Card.Title>
+          </Card.Subtitle>
           <Card.Text>
-            {outstandingPayments}
+            <CashStack className='icons' /><h3>{outstandingPayments}</h3>
           </Card.Text>
         </Card.Body>
       </Card>
