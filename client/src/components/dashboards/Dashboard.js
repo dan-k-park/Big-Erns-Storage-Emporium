@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import AdminDashboard from './AdminDashboard';
 import UserDashboard from './UserDashboard';
+import { Container } from 'react-bootstrap';
 
 class Dashboard extends Component {
 
@@ -20,9 +21,9 @@ class Dashboard extends Component {
 
   render() {
     return (
-      <div>
+      <Container fluid>
         {this.renderDashboard()}
-      </div>
+      </Container>
     )
   }
 }

@@ -39,12 +39,12 @@ class Header extends Component {
 
   render() {
     return (
-      <Navbar expand="lg" fixed="top" className='color-nav'>
+      <Navbar expand="lg" fixed="top" className='nav'>
         <Navbar.Brand as={Link} to='/' className='white-text'>Big Ern's Storage Emporium</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="justify-content-end">
-            <Nav.Link as={Link} to='/units'>Browse Units</Nav.Link>
+          <Nav className="ml-auto">
+            <Nav.Link as={Link} to='/units' className='textcolor'>Browse Units</Nav.Link>
             <NavDropdown title="Your Account" id="basic-nav-dropdown">
               {this.renderContent()}
             </NavDropdown>

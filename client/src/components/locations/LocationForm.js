@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { reduxForm, Field } from 'redux-form';
-import { Container, Row, Col, Form } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 import LocationField from './LocationField';
 import { Link } from 'react-router-dom';
 import _ from 'lodash';
@@ -19,7 +19,7 @@ class LocationForm extends Component {
 
   render() {
     return (
-      <Container fluid={true} style={{ marginTop: '8%' }}>
+      <Container fluid={true}>
         <form onSubmit={this.props.handleSubmit(this.props.onLocationSubmit)}>
           <Row>
             <Col sm={6}>
