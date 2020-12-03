@@ -7,6 +7,7 @@ class AdminDashboard extends Component {
 
   componentDidMount() {
     this.props.fetchUnits();
+    this.props.fetchTenants();
   }
 
   renderUnitInfo() {
@@ -20,22 +21,22 @@ class AdminDashboard extends Component {
   }
 
   renderTenantInfo() {
-
+  return <ListGroup.Item>Tenants {this.props.tenants.length}</ListGroup.Item>
   }
 
   render() {
     return (
       <ListGroup horizontal>
-        <ListGroup.Item>Tenants</ListGroup.Item>
-        <ListGroup.Item>{this.renderUnitInfo()}</ListGroup.Item>
+        {this.renderTenantInfo()}
+        {this.renderUnitInfo()}
         <ListGroup.Item>Outstanding Payments</ListGroup.Item>
       </ListGroup>
     )
   }
 }
 
-function mapStateToProps({ units }) {
-  return { units };
+function mapStateToProps({ units, tenants }) {
+  return { units, tenants };
 }
 
-export default connect(mapStateToProps, { fetchUnits })(AdminDashboard);
+export default connect(mapStateToProps, { fetchUnits, fetchTenants })(AdminDashboard);
