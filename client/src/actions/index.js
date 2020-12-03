@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { createSelectorHook } from 'react-redux';
 import { FETCH_LOCATIONS, FETCH_UNITS, FETCH_USER, FETCH_TENANTS } from './types'
 
 export const fetchUser = () => async dispatch => {
@@ -32,7 +31,7 @@ export const fetchTenants = () => async dispatch => {
   const res = await axios.get('/api/users');
 
   let tenants = []
-  res.data.users.forEach(user => {
+  res.data.forEach(user => {
     if (!user.admin) {
       tenants.push(user)
     }

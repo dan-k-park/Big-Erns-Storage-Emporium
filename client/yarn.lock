@@ -9439,6 +9439,13 @@
     "regenerator-runtime" "^0.13.3"
     "whatwg-fetch" "^3.0.0"
 
+"react-bootstrap-icons@^1.1.0":
+  "integrity" "sha512-VDqoeXm/wCXfPuStJfsOztqYpZ3WdjaUaWZk6z78bjNc0JwQCme4nxuML+ISn151Vm6RAZKs2U4c/IbMhuJzpQ=="
+  "resolved" "https://registry.npmjs.org/react-bootstrap-icons/-/react-bootstrap-icons-1.1.0.tgz"
+  "version" "1.1.0"
+  dependencies:
+    "prop-types" "^15.7.2"
+
 "react-bootstrap@^1.4.0":
   "integrity" "sha512-0BMzgeUAxH126v7VYDzIXbHxQVHSnniPVKpz9fblumdQpWaiElMnnzk+u8h8DoELX0nCXwPlcUzgXqmpncdc2Q=="
   "resolved" "https://registry.npmjs.org/react-bootstrap/-/react-bootstrap-1.4.0.tgz"
@@ -9648,7 +9655,7 @@
     "loose-envify" "^1.4.0"
     "prop-types" "^15.6.2"
 
-"react@^16.13.1", "react@^16.4.2", "react@^16.8.0", "react@^16.8.3 || ^17", "react@>=0.14.0", "react@>=15.0.0", "react@>=16.3.0", "react@>=16.3.2", "react@>=16.6.0", "react@>=16.8.0":
+"react@^16.13.1", "react@^16.4.2", "react@^16.8.0", "react@^16.8.3 || ^17", "react@^16.8.6", "react@>=0.14.0", "react@>=15.0.0", "react@>=16.3.0", "react@>=16.3.2", "react@>=16.6.0", "react@>=16.8.0":
   "integrity" "sha512-YMZQQq32xHLX0bz5Mnibv1/LHb3Sqzngu7xstSM+vrkE5Kzr9xE0yMByK5kMoTK30YVJE61WfbxIFFvfeDKT1w=="
   "resolved" "https://registry.npmjs.org/react/-/react-16.13.1.tgz"
   "version" "16.13.1"

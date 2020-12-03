@@ -1,5 +1,4 @@
 const express = require('express');
-const routes = require('./routes');
 const cookieSession = require('cookie-session');
 const passport = require('passport');
 const keys = require('./config/keys');
@@ -32,7 +31,6 @@ app.use(passport.session());
 // authRoutes file returns a function
 // the (app) immediately invokes said function that was just required in
 require('./routes/authRoutes')(app);
-require('./routes/accountRoutes')(app);
 require('./routes/locationRoutes')(app);
 require('./routes/unitRoutes')(app)
 require('./routes/userRoutes')(app)
