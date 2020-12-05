@@ -13,13 +13,22 @@ class AdminDashboard extends Component {
 
   renderUnitInfo() {
     return (
-      <Card className="text-center">
+      <Card className="text-center" bg='light' border='dark'>
         <Card.Body>
           <Card.Subtitle>
             Units
           </Card.Subtitle>
           <Card.Text>
-            <HouseDoorFill className='icons' /><h3>{this.props.units.length}</h3>
+            <Container>
+              <Row md={6}>
+                <Col>
+                  <HouseDoorFill className='icons' />
+                </Col>
+                <Col>
+                <p style={{ fontSize: '35px' }}>{this.props.units.length}</p>
+                </Col>
+              </Row>
+            </Container>
           </Card.Text>
         </Card.Body>
       </Card>
@@ -34,13 +43,13 @@ class AdminDashboard extends Component {
       }
     })
     return (
-      <Card className="text-center">
+      <Card className="text-center" bg='light' border='dark'>
         <Card.Body>
           <Card.Subtitle>
             Ongoing Rentals
           </Card.Subtitle>
           <Card.Text>
-            <ListCheck className='icons' /><h3>{rentedUnits}</h3>
+            <ListCheck className='icons' /><p style={{ fontSize: '35px' }}>{rentedUnits}</p>
           </Card.Text>
         </Card.Body>
       </Card>
@@ -49,13 +58,22 @@ class AdminDashboard extends Component {
 
   renderTenantInfo() {
     return (
-      <Card className="text-center">
+      <Card className="text-center" bg='light' border='dark'>
         <Card.Body>
-          <Card.Subtitle>
+          <Card.Subtitle style={{ color: '#9195a3' }}>
             Tenants
           </Card.Subtitle>
           <Card.Text>
-            <PeopleFill className='icons' /><h3>{this.props.tenants.length}</h3>
+            <Container>
+              <Row>
+                <Col xs lg='2'>
+                  <PeopleFill className='icons' />
+                </Col>
+                <Col md='auto'>
+                  <p style={{ fontSize: '35px' }}>{this.props.tenants.length}</p>
+                </Col>
+              </Row>
+            </Container>
           </Card.Text>
         </Card.Body>
       </Card>
@@ -70,13 +88,13 @@ class AdminDashboard extends Component {
       }
     })
     return (
-      <Card className="text-center">
+      <Card className="text-center" bg='light' border='dark'>
         <Card.Body>
           <Card.Subtitle>
             Outstanding Payments
           </Card.Subtitle>
           <Card.Text>
-            <CashStack className='icons' /><h3>{outstandingPayments}</h3>
+            <CashStack className='icons' /><p style={{ fontSize: '35px' }}>{outstandingPayments}</p>
           </Card.Text>
         </Card.Body>
       </Card>
@@ -87,18 +105,29 @@ class AdminDashboard extends Component {
     return (
       <Container fluid={true}>
         <Row>
-          <Col>
-        <CardGroup>
-          {this.renderUnitInfo()}
-          {this.renderTenantInfo()}
-          {this.renderRentedUnitInfo()}
-          
-        </CardGroup>
-          </Col>
-          <Col>
-        {this.renderOutstandingPaymentInfo()}
-          </Col>
+          <Col md={8}>
+            <CardGroup>
+              {this.renderUnitInfo()}
+              {this.renderTenantInfo()}
+              {this.renderRentedUnitInfo()}
 
+            </CardGroup>
+          </Col>
+          <Col md={4}>
+            {this.renderOutstandingPaymentInfo()}
+          </Col>
+        </Row>
+        <Row style={{marginTop:'5%'}}>
+          <Col md={4}>
+            Google Maps Rendering of all locations
+          </Col>
+          <Col md={4}>
+            Location Form
+          </Col>
+          <Col md={4}>
+          Add new admin
+
+          </Col>
         </Row>
       </Container>
     )

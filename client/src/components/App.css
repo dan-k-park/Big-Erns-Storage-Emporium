@@ -1,5 +1,5 @@
 body {
-  background-color: rgb(165,172,175);
+  background-color:#f6f7f9;
 }
 
 .nav {
@@ -16,5 +16,6 @@ body {
 
 .icons {
   size: 20;
+  color: #9195a3;
   margin-right: 2px;
 }
