@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import MapContainer from '../MapContainer';
 import { connect } from 'react-redux';
 import { Container, CardGroup, Card, Col, Row } from 'react-bootstrap';
 import { CashStack, ListCheck, PeopleFill, HouseDoorFill } from 'react-bootstrap-icons';
@@ -119,7 +120,7 @@ class AdminDashboard extends Component {
         </Row>
         <Row style={{marginTop:'5%'}}>
           <Col md={4}>
-            Google Maps Rendering of all locations
+            <MapContainer />
           </Col>
           <Col md={4}>
             Location Form
