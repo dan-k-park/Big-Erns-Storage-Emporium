@@ -1,4 +1,5 @@
 export default [
+  { label: 'Name', name: 'name'},
   { label: 'Address Line 1', name: 'add1'},
   { label: 'Address Line 2', name: 'add2'},
   { label: 'Number of 25sq ft Units', name: 'twentyfive'},

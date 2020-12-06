@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import MapContainer from '../MapContainer';
+import LocationNew from '../locations/LocationNew'
 import { connect } from 'react-redux';
-import { Container, CardGroup, Card, Col, Row } from 'react-bootstrap';
+import { Container, CardGroup, Card, Col, Jumbotron, Row } from 'react-bootstrap';
 import { CashStack, ListCheck, PeopleFill, HouseDoorFill } from 'react-bootstrap-icons';
 import { fetchUnits, fetchTenants } from '../../actions';
 
@@ -119,15 +120,22 @@ class AdminDashboard extends Component {
           </Col>
         </Row>
         <Row style={{marginTop:'5%'}}>
-          <Col md={4}>
-            <MapContainer />
+          <Col md={6}>
+            <Jumbotron fluid>
+              <LocationNew />
+            </Jumbotron>
           </Col>
-          <Col md={4}>
-            Location Form
+          <Col md={6}>
+            <Jumbotron fluid>
+              Admin list
+            </Jumbotron>
           </Col>
-          <Col md={4}>
-          Add new admin
-
+        </Row>
+        <Row>
+        <Col>
+            <Jumbotron fluid>
+              <MapContainer />
+            </Jumbotron>
           </Col>
         </Row>
       </Container>

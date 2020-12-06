@@ -36,12 +36,13 @@ module.exports = app => {
 
   app.post('/api/locations', async (req, res) => {
     console.log(req.body);
-    const { add1, add2, twentyfive, seventyfive, onefifty } = req.body
+    const { name, add1, add2, twentyfive, seventyfive, onefifty } = req.body
     const address = add1 + ' ' + add2
     const num25 = parseInt(twentyfive)
     const num75 = parseInt(seventyfive)
     const num150 = parseInt(onefifty)
     Location.create({
+      name: name,
       address: address,
       num25: num25,
       num75: num75,

@@ -22,7 +22,13 @@ class LocationForm extends Component {
       <Container fluid={true}>
         <form onSubmit={this.props.handleSubmit(this.props.onLocationSubmit)}>
           <Row>
-            <Col sm={6}>
+            <Col>
+              <Field
+                label="Name"
+                type="text"
+                name="name"
+                component={LocationField}
+              />
               <Field
                 label="Address Line 1"
                 type="text"
@@ -56,9 +62,6 @@ class LocationForm extends Component {
               <Link to='/'>Cancel</Link>
               <button type='submit'>Next</button>
             </Col>
-            <Col sm={6} style={{ marginTop: '8%' }}>
-              Google maps rendering
-          </Col>
           </Row>
         </form>
       </Container>
