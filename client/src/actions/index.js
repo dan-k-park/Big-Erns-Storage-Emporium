@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { FETCH_LOCATIONS, FETCH_UNITS, FETCH_USER, FETCH_TENANTS } from './types'
+import { FETCH_LOCATIONS, FETCH_UNITS, FETCH_USER, FETCH_ADMINS, FETCH_TENANTS } from './types'
 
 export const fetchUser = () => async dispatch => {
   const res = await axios.get('/api/current_user');
@@ -38,6 +38,19 @@ export const fetchTenants = () => async dispatch => {
   })
 
   dispatch({ type: FETCH_TENANTS, payload: tenants })
+}
+
+export const fetchAdmins = () => async dispatch => {
+  const res = await axios.get('/api/users');
+
+  let admins = [];
+  res.data.forEach(user => {
+    if (user.admin) {
+      admins.push(user)
+    }
+  })
+
+  dispatch({ type: FETCH_ADMINS, payload: admins })
 }
 
 

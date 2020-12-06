@@ -8,8 +8,8 @@ import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
 export class MapContainer extends Component {
 
   state = {
-    lat: 0,
-    long: 0,
+    lat: 47.9790,
+    long: 122.2021,
   }
 
   renderMarkers() {

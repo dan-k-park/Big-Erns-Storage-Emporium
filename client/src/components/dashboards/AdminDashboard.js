@@ -4,13 +4,14 @@ import LocationNew from '../locations/LocationNew'
 import { connect } from 'react-redux';
 import { Container, CardGroup, Card, Col, Jumbotron, Row } from 'react-bootstrap';
 import { CashStack, ListCheck, PeopleFill, HouseDoorFill } from 'react-bootstrap-icons';
-import { fetchUnits, fetchTenants } from '../../actions';
+import { fetchUnits, fetchTenants, fetchAdmins } from '../../actions';
 
 class AdminDashboard extends Component {
 
   componentDidMount() {
     this.props.fetchUnits();
     this.props.fetchTenants();
+    this.props.fetchAdmins();
   }
 
   renderUnitInfo() {
@@ -59,6 +60,7 @@ class AdminDashboard extends Component {
   }
 
   renderTenantInfo() {
+    const tenantCount = this.props.tenants.length
     return (
       <Card className="text-center" bg='light' border='dark'>
         <Card.Body>
@@ -72,7 +74,7 @@ class AdminDashboard extends Component {
                   <PeopleFill className='icons' />
                 </Col>
                 <Col md='auto'>
-                  <p style={{ fontSize: '35px' }}>{this.props.tenants.length}</p>
+                  <p style={{ fontSize: '35px' }}>{tenantCount}</p>
                 </Col>
               </Row>
             </Container>
@@ -143,8 +145,8 @@ class AdminDashboard extends Component {
   }
 }
 
-function mapStateToProps({ units, tenants }) {
-  return { units, tenants };
+function mapStateToProps({ units, tenants, admins }) {
+  return { units, tenants, admins };
 }
 
-export default connect(mapStateToProps, { fetchUnits, fetchTenants })(AdminDashboard);
+export default connect(mapStateToProps, { fetchUnits, fetchTenants, fetchAdmins })(AdminDashboard);
