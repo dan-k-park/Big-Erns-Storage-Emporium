@@ -14,10 +14,10 @@ export const checkAdmin = (history) => async dispatch => {
   }
 }
 
-export const submitLocation = (values, history) => async dispatch => {
+export const submitLocation = (values) => async dispatch => {
   const res = await axios.post('/api/locations', values);
 
-  history.push('/');
+
   dispatch({ type: FETCH_USER, payload: res.data })
 }
 

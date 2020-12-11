@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import MapContainer from '../MapContainer';
 import LocationNew from '../locations/LocationNew'
+import StatsCard from './StatsCard';
 import { connect } from 'react-redux';
-import { Container, CardGroup, Card, Col, Jumbotron, Row } from 'react-bootstrap';
+import { Button, Container, CardGroup, Card, Col, Jumbotron, Row } from 'react-bootstrap';
 import { CashStack, ListCheck, PeopleFill, HouseDoorFill } from 'react-bootstrap-icons';
-import { fetchUnits, fetchTenants, fetchAdmins } from '../../actions';
+import { fetchUnits, fetchTenants, fetchAdmins, fetchLocations } from '../../actions';
 
 class AdminDashboard extends Component {
 
@@ -12,29 +13,12 @@ class AdminDashboard extends Component {
     this.props.fetchUnits();
     this.props.fetchTenants();
     this.props.fetchAdmins();
+    this.props.fetchLocations();
   }
 
   renderUnitInfo() {
     return (
-      <Card className="text-center" bg='light' border='dark'>
-        <Card.Body>
-          <Card.Subtitle>
-            Units
-          </Card.Subtitle>
-          <Card.Text>
-            <Container>
-              <Row md={6}>
-                <Col>
-                  <HouseDoorFill className='icons' />
-                </Col>
-                <Col>
-                <p style={{ fontSize: '35px' }}>{this.props.units.length}</p>
-                </Col>
-              </Row>
-            </Container>
-          </Card.Text>
-        </Card.Body>
-      </Card>
+      <StatsCard icon={<HouseDoorFill className='icons'/>} name='Units' value={this.props.units.length} />
     )
   }
 
@@ -46,41 +30,14 @@ class AdminDashboard extends Component {
       }
     })
     return (
-      <Card className="text-center" bg='light' border='dark'>
-        <Card.Body>
-          <Card.Subtitle>
-            Ongoing Rentals
-          </Card.Subtitle>
-          <Card.Text>
-            <ListCheck className='icons' /><p style={{ fontSize: '35px' }}>{rentedUnits}</p>
-          </Card.Text>
-        </Card.Body>
-      </Card>
+      <StatsCard icon={<ListCheck className='icons'/>} name='Ongoing Rentals' value={rentedUnits} />
     )
   }
 
   renderTenantInfo() {
     const tenantCount = this.props.tenants.length
     return (
-      <Card className="text-center" bg='light' border='dark'>
-        <Card.Body>
-          <Card.Subtitle style={{ color: '#9195a3' }}>
-            Tenants
-          </Card.Subtitle>
-          <Card.Text>
-            <Container>
-              <Row>
-                <Col xs lg='2'>
-                  <PeopleFill className='icons' />
-                </Col>
-                <Col md='auto'>
-                  <p style={{ fontSize: '35px' }}>{tenantCount}</p>
-                </Col>
-              </Row>
-            </Container>
-          </Card.Text>
-        </Card.Body>
-      </Card>
+      <StatsCard icon={<PeopleFill className='icons'/>} name='Tenants' value={tenantCount} />
     )
   }
 
@@ -92,17 +49,28 @@ class AdminDashboard extends Component {
       }
     })
     return (
-      <Card className="text-center" bg='light' border='dark'>
+      <StatsCard icon={<CashStack className='icons'/>} name='Outstanding Payments' value={outstandingPayments} />
+    )
+  }
+
+  renderLocations() {
+    return this.props.locations.map(location => {
+      return (
+      <Card key={location.id}>
+        <Card.Header>{location.name}</Card.Header>
         <Card.Body>
-          <Card.Subtitle>
-            Outstanding Payments
-          </Card.Subtitle>
+          <Card.Title>{location.address}</Card.Title>
           <Card.Text>
-            <CashStack className='icons' /><p style={{ fontSize: '35px' }}>{outstandingPayments}</p>
+            25sq ft Units: {location.num25}<br/>
+            75sq ft Units: {location.num75}<br/>
+            150sq ft Units: {location.num150}<br/>
           </Card.Text>
+          <Button variant="primary">View More</Button>
         </Card.Body>
       </Card>
-    )
+      )
+    }
+  )
   }
 
   render() {
@@ -121,7 +89,7 @@ class AdminDashboard extends Component {
             {this.renderOutstandingPaymentInfo()}
           </Col>
         </Row>
-        <Row style={{marginTop:'5%'}}>
+        <Row style={{ marginTop: '5%' }}>
           <Col md={6}>
             <Jumbotron fluid>
               <LocationNew />
@@ -129,12 +97,12 @@ class AdminDashboard extends Component {
           </Col>
           <Col md={6}>
             <Jumbotron fluid>
-              Admin list
+              {this.renderLocations()}
             </Jumbotron>
           </Col>
         </Row>
         <Row>
-        <Col>
+          <Col>
             <Jumbotron fluid>
               <MapContainer />
             </Jumbotron>
@@ -145,8 +113,8 @@ class AdminDashboard extends Component {
   }
 }
 
-function mapStateToProps({ units, tenants, admins }) {
-  return { units, tenants, admins };
+function mapStateToProps({ units, tenants, admins, locations }) {
+  return { units, tenants, admins, locations };
 }
 
-export default connect(mapStateToProps, { fetchUnits, fetchTenants, fetchAdmins })(AdminDashboard);
+export default connect(mapStateToProps, { fetchUnits, fetchTenants, fetchAdmins, fetchLocations })(AdminDashboard);

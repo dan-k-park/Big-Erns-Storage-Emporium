@@ -5,6 +5,8 @@ import { Container, Jumbotron } from 'react-bootstrap'
 import * as actions from '../actions'
 import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
 
+Geocode.setApiKey('AIzaSyAigyv3pxO6kEL0fOilxa3d9dodPrzPn2Q');
+
 export class MapContainer extends Component {
 
   state = {
@@ -17,6 +19,7 @@ export class MapContainer extends Component {
     this.props.locations.map(location => {
       Geocode.fromAddress(location.address).then(
         res => {
+          console.log(res)
           const { lat, lng } = res.results[0].geometry.location;
           return (
             <Marker name={location.name} position={{lat: lat, lng: lng}} />
@@ -24,13 +27,12 @@ export class MapContainer extends Component {
         }
       )
     })
-
   }
 
   render() {
     return (
       <Jumbotron fluid>
-      <Map google={this.props.google} zoom={14} initialCenter={{ lat: this.state.lat, long: this.state.long }}>
+      <Map google={this.props.google} zoom={14} initialCenter={{ lat: this.state.lat, lng: this.state.long }}>
         {this.renderMarkers()}
         {/* <InfoWindow onClose={this.onInfoWindowClose}>
             <div>

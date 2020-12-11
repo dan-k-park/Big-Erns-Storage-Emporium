@@ -6,7 +6,7 @@ import { withRouter } from 'react-router-dom';
 import * as actions from '../../actions'
 
 
-const LocationFormReview = ({ onCancel, formValues, submitLocation, history }) => {
+const LocationFormReview = ({ onCancel, formValues, submitLocation }) => {
   const reviewFields = _.map(formFields, ({ name, label }) => {
     return (
       <div key={name}>
@@ -23,7 +23,7 @@ const LocationFormReview = ({ onCancel, formValues, submitLocation, history }) =
       <button onClick={onCancel}>
         Back
       </button>
-      <button onClick={() => submitLocation(formValues, history)}>
+      <button onClick={() => submitLocation(formValues)}>
         Create Location
       </button>
     </div>
