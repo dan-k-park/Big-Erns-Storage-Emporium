@@ -5,7 +5,7 @@ import { Container, Jumbotron } from 'react-bootstrap'
 import * as actions from '../actions'
 import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
 
-Geocode.setApiKey('AIzaSyAigyv3pxO6kEL0fOilxa3d9dodPrzPn2Q');
+Geocode.setApiKey('key');
 
 export class MapContainer extends Component {
 
@@ -55,5 +55,5 @@ MapContainer = connect(
 )(MapContainer)
 
 export default GoogleApiWrapper({
-  apiKey: 'AIzaSyAigyv3pxO6kEL0fOilxa3d9dodPrzPn2Q'
+  apiKey: 'key'
 })(MapContainer)
